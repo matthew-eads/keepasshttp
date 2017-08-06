@@ -8,6 +8,8 @@ using System.Diagnostics;
 
 namespace KeePassHttp
 {
+    public enum PasswordGeneratorType { DEFAULT, PATTERN, CUSTOM }
+
     public sealed partial class KeePassHttpExt : Plugin
     {
         private static string encode64(byte[] b)
@@ -121,6 +123,16 @@ namespace KeePassHttp
         /// Realm value used for filtering results.  Always encrypted.
         /// </summary>
         public string Realm;
+
+        /// <summary>
+        /// Pattern to be used to generate password.
+        /// </summary>
+        public string PasswordPattern;
+
+        /// <summary>
+        /// Type of password generator (custom, pattern, default, etc)
+        /// </summary>
+        public PasswordGeneratorType PasswordType;
     }
 
     public class Response
